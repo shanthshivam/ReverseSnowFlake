@@ -1,0 +1,73 @@
+digraph G {
+subgraph cluster_main  {
+	node [fontsize=12,
+		label="\N",
+		shape=record
+	];
+	_dummy	[height=0.5,
+		label="",
+		pos="639,18",
+		shape=none,
+		width=0.75];
+	CATEGORY	[fillcolor=white,
+		height=1.4722,
+		label="CATEGORY | (CATEGORY) |<category_id> category_id|<name> name|<category> name AS category",
+		pos="50.5,142",
+		rects="2.8422e-14,173.5,101,194.5 2.8422e-14,152.5,101,173.5 2.8422e-14,131.5,101,152.5 2.8422e-14,110.5,101,131.5 2.8422e-14,89.5,101,\
+110.5",
+		style=filled,
+		width=1.4028];
+	FILM_CATEGORY	[fillcolor=white,
+		height=1.1806,
+		label="FILM_CATEGORY | (FILM_CATEGORY) |<category_id> category_id|<film_id> film_id",
+		pos="236,142",
+		rects="175.5,163,296.5,184 175.5,142,296.5,163 175.5,121,296.5,142 175.5,100,296.5,121",
+		style=filled,
+		width=1.6806];
+	CATEGORY:category_id:e -> FILM_CATEGORY:category_id:w	[arrowhead=none,
+		arrowtail=dot,
+		color=orange,
+		pos="101.5,142 101.5,142 175,131 175,131"];
+	FILM	[fillcolor=white,
+		height=2.9306,
+		label="FILM | (FILM) |<description> description AS description|<film_id> GROUP BY film_id|<fid> film_id AS fid|<length> length AS length|<\
+rating> rating AS rating|<rental_rate> rental_rate|<price> rental_rate AS price|<title> title AS title",
+		pos="474,142",
+		rects="405.5,226,542.5,247 405.5,205,542.5,226 405.5,184,542.5,205 405.5,163,542.5,184 405.5,142,542.5,163 405.5,121,542.5,142 405.5,100,\
+542.5,121 405.5,79,542.5,100 405.5,58,542.5,79 405.5,37,542.5,58",
+		style=filled,
+		width=1.9028];
+	FILM_CATEGORY:film_id:e -> FILM:film_id:w	[arrowhead=none,
+		arrowtail=dot,
+		color=orange,
+		pos="405,174 405,174 297,110 297,110"];
+	FILM_ACTOR	[fillcolor=white,
+		height=1.1806,
+		label="FILM_ACTOR | (FILM_ACTOR) |<actor_id> actor_id|<film_id> film_id",
+		pos="700.5,142",
+		rects="651.5,163,749.5,184 651.5,142,749.5,163 651.5,121,749.5,142 651.5,100,749.5,121",
+		style=filled,
+		width=1.3611];
+	FILM:film_id:e -> FILM_ACTOR:film_id:w	[arrowhead=none,
+		arrowtail=none,
+		color=black,
+		pos="543,174 543,174 651.5,110 651.5,110"];
+	ACTOR	[fillcolor=white,
+		height=1.7639,
+		label="ACTOR | (ACTOR) |<actors> ... AS actors|<actor_id> actor_id|<first_name> first_name|<last_name> last_name",
+		pos="885,142",
+		rects="848,184,922,205 848,163,922,184 848,142,922,163 848,121,922,142 848,100,922,121 848,79,922,100",
+		style=filled,
+		width=1.0278];
+	FILM_ACTOR:actor_id:e -> ACTOR:actor_id:w	[arrowhead=none,
+		arrowtail=none,
+		color=black,
+		pos="848,131 848,131 749.5,131 749.5,131"];
+}
+
+
+
+
+
+
+}
